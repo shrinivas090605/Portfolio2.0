@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shrinivas Wable | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0f1a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      width: 100%;
+      padding: 18px 10%;
+      background: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 22px;
+      color: #00c6ff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 18px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00c6ff;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 25px;
+      cursor: pointer;
+      color: white;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+      padding-top: 120px;
+    }
+
+    .hero-text h1 {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 span {
+      color: #00c6ff;
+    }
+
+    .hero-text h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      color: #aaa;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #00c6ff;
+      color: black;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background: white;
+      color: black;
+    }
+
+    .btn-outline {
+      border: 2px solid #00c6ff;
+      color: #00c6ff;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #00c6ff;
+      color: black;
+    }
+
+    /* PHOTO */
+    .hero-photo img {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      border: 4px solid #00c6ff;
+      object-fit: cover;
+      box-shadow: 0px 0px 25px rgba(0, 198, 255, 0.5);
+      transition: 0.3s;
+    }
+
+    .hero-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* CARD SECTION */
+    .card-section h2 {
+      font-size: 30px;
+      margin-bottom: 25px;
+      color: #00c6ff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #00c6ff;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: white;
+    }
+
+    .card p {
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-box a {
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        right: 10%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 15px;
+        border-radius: 10px;
+        width: 200px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-photo img {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h2></h2>
+
+    <nav>
+      <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#internship">Internship</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+      <h1>Hello, I'm <span>Shrinivas Wable</span></h1>
+      <h3>B.Tech CSE (AI & DS) Student</h3>
+      <p>
+        I'm an Engineering student who enjoys solving problems and thinking creatively.
+        I’m eager to learn new things and apply what I’ve studied in real-world situations.
+        I’m responsible, motivated, and looking forward to gaining experience and being part of a team.
+      </p>
+
+      <div class="btn-group">
+        <a class="btn btn-primary" href="mailto:shrinivaswable09@gmail.com">Hire Me</a>
+        <a class="btn btn-outline" target="_blank" href="https://github.com/shrinivas090605">GitHub</a>
+        <a class="btn btn-outline" target="_blank" href="https://www.linkedin.com/in/shrinivas-wable">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- PHOTO -->
+    <div class="hero-photo">
+      <img src="AIDS_065_Shrinivas.jpg" alt="Shrinivas Wable">
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="card-section" id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am Shrinivas Wable, currently pursuing B.Tech in Computer Science & Engineering (AI & DS) at Sanjivani University.
+        I have completed my Diploma in Computer Engineering from Cusrow Wadia Institute of Technology, Pune.
+        I am interested in Artificial Intelligence, Computer Vision, and Web Development.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="card-section" id="skills">
+    <h2>Technical Skills</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Programming</h3>
+        <p>Java, Python</p>
+      </div>
+
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>HTML, CSS, JavaScript, PHP</p>
+      </div>
+
+      <div class="card">
+        <h3>AI / ML</h3>
+        <p>Deep Learning, CNN, LaneNet, VGG16, DBSCAN, OpenCV</p>
+      </div>
+
+      <div class="card">
+        <h3>Tools & Platforms</h3>
+        <p>Git, GitHub, JIRA, Jupyter Notebook, DevOps Tools</p>
+      </div>
+
+      <div class="card">
+        <h3>Framework</h3>
+        <p>SpringBoot Framework</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="card-section" id="projects">
+    <h2>Projects</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Rash Driving Detection Web Application (2023-2024)</h3>
+        <p>
+          Detect rash or unsafe driving behavior using video input for improved road safety monitoring.
+          Developed using Python and OpenCV for video analysis, with a basic web interface in HTML and CSS.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Smart Agriculture using IoT with AI (2024-2025)</h3>
+        <p>
+          AI-integrated IoT solution to improve farming efficiency. Developed an IoT-based system integrated with AI models
+          to monitor and analyze farming conditions for data-driven decisions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Road Lane Line Detection using LaneNet + VGG16 (2025-2026)</h3>
+        <p>
+          Built a deep learning based lane detection system using LaneNet with VGG16, DBSCAN clustering,
+          and real-world image datasets for accurate road lane detection.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERNSHIP -->
+  <section class="card-section" id="internship">
+    <h2>Internship Experience</h2>
+    <div class="card">
+      <h3>Front-End Web Developer Intern (Remote)</h3>
+      <p><b>Company:</b> WEBSOFTERA</p>
+      <p>
+        • Worked as a Front-End Web Developer intern.<br>
+        • 1 month of hands-on experience on a live client project.<br>
+        • Contributed to the development of an AMC (Annual Maintenance Contract) Tracking System.<br>
+        • Implemented client requirements into responsive and user-friendly web interfaces.
+      </p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="card-section" id="education">
+    <h2>Education</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>B.Tech in CSE (AI & DS)</h3>
+        <p>Sanjivani University | CGPA: 8.55 | 2027</p>
+      </div>
+
+      <div class="card">
+        <h3>Diploma in Computer Engineering</h3>
+        <p>Cusrow Wadia Institute of Technology, Pune | 85.06% | 2021-2024</p>
+      </div>
+
+      <div class="card">
+        <h3>SSC (10th)</h3>
+        <p>Bal Vidya Mandir High School, Parbhani | 93.00% | 2020-2021</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="card-section" id="certificates">
+    <h2>Certificates</h2>
+
+    <div class="grid">
+      <div class="card"><h3>Cloud Fundamentals (IBM)</h3></div>
+      <div class="card"><h3>DevOps Fundamentals (IBM)</h3></div>
+      <div class="card"><h3>Business Intelligence (IBM)</h3></div>
+      <div class="card"><h3>Predictive Modeling with IBM SPSS Modeler</h3></div>
+      <div class="card"><h3>Learning Analytics Tool (NPTEL)</h3></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="card-section" id="contact">
+    <h2>Contact Me</h2>
+
+    <div class="contact-box">
+      <p><b>Email:</b> <a href="mailto:shrinivaswable09@gmail.com">shrinivaswable09@gmail.com</a></p>
+      <p><b>Phone:</b> 7841094611</p>
+      <p><b>LinkedIn:</b> <a target="_blank" href="https://www.linkedin.com/in/shrinivas-wable">linkedin.com/in/shrinivas-wable</a></p>
+      <p><b>GitHub:</b> <a target="_blank" href="https://github.com/shrinivas090605">github.com/shrinivas090605</a></p>
+      <p><b>Location:</b> Maharashtra, India</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Shrinivas Wable | Portfolio Website</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    // Smooth scroll effect
+    document.querySelectorAll("nav ul li a").forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        target.scrollIntoView({ behavior: "smooth" });
+
+        // Close menu on mobile after clicking
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
